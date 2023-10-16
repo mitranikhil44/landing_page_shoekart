@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShoeCo - Step into Style</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+        <div class="inner_navbar">
+            <div class="navbar-logo">
+                
+                <a href="#main"><img src="/logo.png" alt=" Logo" /></a>
+            </div>
+            <ul class="navbar-links">
+                <li><a href="#main">Home</a></li>
+                <li><a href="#first-layout">Men's Shoes</a></li>
+                <li><a href="#second-layout">Women's Shoes</a></li>
+                <li><a href="#about-us">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="main" class="main">
+      <h1 class="animate">Whelcome to Shoeskart</h1>
+      <p class="animate">Scroll down to see the effect</p>
+      <a class="cta-button" href="#">Shop Now</a>
+      <p class="animate">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae
+        consequatur officiis error ipsa delectus sit odio, velit praesentium
+        aspernatur voluptates libero saepe, dignissimos molestias incidunt
+        consectetur? Aspernatur eum mollitia veritatis, pariatur modi recusandae
+        iste quae rem quos aperiam architecto perspiciatis, possimus maiores
+        necessitatibus ullam, consequuntur ipsam minima dolore numquam labore.
+      </p>
+      <section id="first-layout" class="first-layout upper_content">
+        <h1 class="animate">Men's Shoes</h1>
+        <p class="animate">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestiae,
+          inventore! Autem animi neque enim saepe aliquid. Accusantium odio,
+          consequatur iste exercitationem impedit est? Reprehenderit deleniti
+          eius laudantium laborum mollitia ipsam assumenda reiciendis fuga dolor
+          id? Ipsam, maiores ad. Voluptatum sapiente nobis in. Dolorem totam
+          beatae doloremque adipisci perferendis magnam optio ducimus vel,
+          ratione fugit aut enim impedit consequatur repudiandae esse voluptates
+          neque vitae reiciendis. Optio at et perspiciatis voluptatem maxime
+          voluptates explicabo illum accusantium architecto voluptatum corporis
+          dignissimos aspernatur eligendi eum itaque ea, excepturi sequi
+          possimus reprehenderit voluptate. Cum possimus odit illum sequi
+          explicabo perferendis consequatur praesentium eius, exercitationem
+          officia fugiat maxime voluptate neque at suscipit commodi distinctio
+          necessitatibus iste? Praesentium tenetur porro placeat voluptatibus,
+          asperiores animi architecto iusto, rerum explicabo dolorum molestiae,
+          quisquam laborum amet. Voluptas dicta architecto ratione similique in
+          esse. Numquam, quidem molestiae officia tempore, recusandae accusamus
+          in laborum vitae sapiente ipsam fugiat ex ipsum provident molestias
+          accusantium consequatur minima. Consequatur, doloribus dolore.
+          Architecto possimus exercitationem quis sunt odit hic voluptas
+          delectus cumque incidunt libero in perspiciatis, voluptates aspernatur
+          quo accusantium dolorem dolor ipsa, repudiandae earum repellat.
+          Pariatur omnis odit numquam accusamus blanditiis provident suscipit
+          asperiores aperiam optio, deserunt cum enim consequuntur ab nulla quod
+          voluptatibus quibusdam.
+        </p>
+        <img src="/men_shoes.jpeg" alt="Men Shoes" />
+      </section>
+      <section id="second-layout" class="second-layout upper_content">
+        <h1 class="animate">Women's Shoes</h1>
+        <p class="animate">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam
+          delectus, architecto quisquam commodi doloremque vel sed iure.
+          Consequatur quia aspernatur expedita suscipit, ab ducimus at veniam?
+          Totam ut culpa quisquam natus nisi porro magnam tenetur. Consectetur,
+          officiis. Cum sint a magni repellendus porro placeat hic obcaecati
+          maxime enim dolore, vitae excepturi debitis quasi reiciendis voluptate
+          dolores illum? Perferendis soluta sit magni rem natus, excepturi nulla
+          dolor, unde corrupti labore iusto. Ducimus dignissimos qui veniam
+          eligendi harum alias tempora aperiam asperiores deserunt. Excepturi,
+          quisquam neque odio obcaecati doloremque, expedita temporibus beatae
+          pariatur illum atque placeat sapiente! A nobis cum maiores? Placeat ad
+          accusamus facere, fugiat asperiores quae beatae reiciendis. Totam,
+          natus ullam dolore ipsum ab aut incidunt nobis ipsa voluptatem
+          accusantium commodi reiciendis, molestias odio illo minima nihil
+          tempora quaerat quam. Vitae rerum, fuga accusantium voluptate, ad
+          voluptatum doloremque iste minus delectus architecto nemo impedit?
+          Iste id repudiandae nobis ut inventore consequatur culpa provident
+          voluptatibus cumque enim consectetur sint omnis saepe harum possimus
+          doloremque, laudantium delectus accusantium? Nulla sint aut debitis
+          repellat quia amet possimus esse deserunt voluptatum. Eum non nemo
+          facilis error itaque iure nesciunt minima hic? Eveniet vitae,
+          assumenda nam distinctio magnam ullam quia fuga pariatur dignissimos
+          impedit qui?
+        </p>
+        <img src="/women_shoes.jpeg" alt="Women Shoes" />
+      </section>
+    </section>
+
+    <script>
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+      const sections = document.querySelectorAll("section");
+      sections.forEach((section) => {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = 1;
+              entry.target.classList.add("slide-in"); // Add animation class
+            }
+          });
+        });
+        observer.observe(section);
+      });
+    </script>
+  </body>
+</html>
